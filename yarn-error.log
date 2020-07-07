@@ -1,0 +1,31 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Paimo Emmanuel\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\Paimo Emmanuel\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Paimo Emmanuel\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Users\Paimo Emmanuel\Downloads\dart-sass-1.23.7-windows-x64\dart-sass;C:\Program Files\nodejs;C:\Users\Paimo Emmanuel\AppData\Local\Microsoft\WindowsApps;C:\Users\Paimo Emmanuel\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Paimo Emmanuel\AppData\Roaming\npm;C:\Program Files\heroku\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.14.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Users\Paimo Emmanuel\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:96783:59)
+      at Object.<anonymous> (C:\Users\Paimo Emmanuel\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:89063:38)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Paimo Emmanuel\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Paimo Emmanuel\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
