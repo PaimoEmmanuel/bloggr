@@ -21,6 +21,11 @@ module.exports = {
           }
     ]
     },
+    resolve: {
+        modules: [
+            'node_modules'
+        ]
+    },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'public'),

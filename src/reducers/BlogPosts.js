@@ -8,7 +8,7 @@ const blogPostsReducer = (state = [], action) => {
             ];
         case "EDIT_BLOG":
             return state.map((blogPost) => {
-                if (blogPost.title === action.prevTitle) {
+                if (blogPost.id === action.id) {
                     return {
                         ...blogPost,
                         ...action.updates
@@ -16,7 +16,9 @@ const blogPostsReducer = (state = [], action) => {
                 } else { return blogPost }
             });
         case "DELETE_BLOG":
-            return state.filter(({ title }) => title != action.title)
+            return state.filter(({ id }) => id != action.id)
+        case "SET_BLOGPOSTS":
+            return action.blogPosts
 
         default:
             return state;
