@@ -1,5 +1,8 @@
 .search-filter{
     text-align: center;
+    @include respond(phone){
+        margin-top: 5rem;
+    }
     input{
         text-align: center;
         width: 40rem;
@@ -23,9 +26,15 @@
 .blog-date{
     font-style: italic;
     font-weight: 500;
+    @include respond(phone){
+        font-size: 2rem;
+    }
 }
 .blog-quote{
     margin: 1rem 0;
     font-weight: 500;
     font-style: italic;
+    @include respond(phone){
+        font-size: 2rem;
+    }
 }

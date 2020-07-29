@@ -4,9 +4,11 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-}html{
+}
+html{
     //Defines what 1rem is. 1rem = 10px
     font-size: 62.5%;
+    box-sizing: border-box;
 
     @include respond(big-desktop){
         font-size: 75%; //12/16 = 75
@@ -17,10 +19,13 @@
     @include respond(tab-port){
         font-size: 50%; //8/16 = 50
     }
+    @include respond(phone){
+        font-size: 40%; //8/16 = 50
+    }
 
 }
 
-body{
+body {
     box-sizing: border-box;
     background-color: white;
     font-family: quicksand, sans-serif;
@@ -30,7 +35,7 @@ body{
 //     cursor: pointer;
 
 //     &:disabled{
-//       cursor: default;  
+//       cursor: default;
 //     }
 // }
 // ol{
@@ -40,28 +45,30 @@ body{
 // .is-active {
 //     font-weight: bold;
 // }
-.logo{
+.logo {
     font-style: italic;
     color: $color-purple;
     padding: 0 7rem;
-    a{
+    a {
         text-decoration: none;
         color: $color-purple;
     }
 }
-.footer{
+.footer {
     height: 5rem;
     width: 100%;
-    background-color: $color-purple;
+    position: fixed;
+    bottom: 0;
+    background-color: #5c1a8d;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    a{
+
+    a {
         color: rgb(240, 223, 223);
         font-weight: bold;
         margin-right: 5rem;
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");

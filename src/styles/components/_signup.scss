@@ -8,13 +8,19 @@
     }
     &__img{
         img{
+            display: none;
             height: 79vh;
             max-height: 60rem;
+            @include respond(phone){
+                display: none;
+            }
         }
     }
     &-texts{
         margin-top: 5rem;
-        margin-right: 5rem;
+        a{
+            font-size: 2rem;
+        }
     }
 
     &__header{
@@ -31,6 +37,10 @@
             font-size: 2rem;
             color: #232C35;
             margin-bottom: 1rem;
+            @include respond(phone){
+                margin-bottom: 3rem;
+                font-size: 2.5rem;
+            }
             span{
                 font-style: italic;
                 color: #5C1A8D;
@@ -76,7 +86,7 @@
     &-footer{
         height: 5rem;
         width: 100%;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         background-color: #5C1A8D;
         display: flex;

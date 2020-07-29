@@ -9,6 +9,9 @@
 
     img {
         width: 40rem;
+        @include respond(phone){
+            width: 35rem;
+        }
     }
 
     &-content {
@@ -19,6 +22,10 @@
         line-height: 4rem;
         text-align: initial;
         font-weight: 600;
+        @include respond(phone){
+            margin-left: 0;
+            margin-right: 0;
+        }
         p {
             //width: 80rem;
         }
@@ -28,6 +35,9 @@
         color: $color-purple;
         font-weight: bold;
         margin: 5rem;
+        @include respond(phone){
+            margin-right: 0;
+        }
     }
     &-quote-sign {
         font-size: 20rem;
@@ -48,6 +58,9 @@
     button:focus{
         background-color: #f70a2a;
         margin-left: 20rem;
+        @include respond(phone){
+            margin-left: 5rem;
+        }
     }
     &-form{
         margin:  5rem 0;
@@ -56,11 +69,17 @@
             font-weight: 600;
             width: 70rem;
             text-align: center;
+            @include respond(phone){
+                width: 30rem;
+            }
         }
         button,
         button:focus{
             background-color: #a58b5f;
             margin-left: 5rem;
+            @include respond(phone){
+                margin-left: 0;
+            }
         }
     }
 }

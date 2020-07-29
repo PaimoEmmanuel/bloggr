@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { signupAuth, signinAuth } from './Auth';
+import Footer from './Footer';
 
 class SigninPage extends React.Component {
 
@@ -82,9 +83,7 @@ class SigninPage extends React.Component {
                         <img src="images/phone.png" />
                     </div>
                 </div>
-                <footer className="signup-footer">
-                <a href="https://github.com/PaimoEmmanuel" target="_blank">Built by Paimo</a> 
-                <a href="https://twitter.com/paimo_emmanuel" target="_blank">Follow me on Twitter</a></footer>
+            <Footer />
             </div>
         )
     }
