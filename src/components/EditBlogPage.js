@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BlogPostForm from './BlogPostForm';
-import { startEditBlogPost } from '../actions/BlogPosts'
+import { startEditBlogPost } from '../actions/BlogPosts';
+import Footer from './Footer';
 
 const EditBlogPage = (props) => {
     return  (
@@ -11,6 +12,7 @@ const EditBlogPage = (props) => {
                 props.dispatch(startEditBlogPost(props.blogPost.id, blogPost));
                 props.history.push('/');
             }}/>
+            <Footer />
         </div>
     );
 }

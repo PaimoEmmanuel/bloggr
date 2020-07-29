@@ -53,6 +53,15 @@ body{
     height: 5rem;
     width: 100%;
     background-color: $color-purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    a{
+        color: rgb(240, 223, 223);
+        font-weight: bold;
+        margin-right: 5rem;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');

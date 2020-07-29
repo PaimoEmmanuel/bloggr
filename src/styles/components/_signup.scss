@@ -79,7 +79,15 @@
         position: absolute;
         bottom: 0;
         background-color: #5C1A8D;
-        //padding: 0 -7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        a{
+            color: rgb(240, 223, 223);
+            font-weight: bold;
+            margin-right: 5rem;
+        }
     }
     &-error{
         font-weight: 600;
