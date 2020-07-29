@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "live-server public/",
-    "build": "webpack --watch",
-    "dev-server": "webpack-dev-server"
+    "build:dev": "webpack --watch",
+    "build:prod": "webpack -p --env production",
+    "dev-server": "webpack-dev-server",
+    "start" : "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "author": "Paimo Emmanuel",
   "license": "ISC",
@@ -20,6 +23,8 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "^0.28.4",
+    "express": "^4.17.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "firebase": "^7.16.1",
     "history": "^5.0.0",
     "live-server": "^1.2.1",
