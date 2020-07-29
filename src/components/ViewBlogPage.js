@@ -33,7 +33,7 @@ const ViewBlogPage = (props) => {
                     </div>
                     {props.auth.uid === userID ? 
                         <form className="viewblog-form">
-                        <input readOnly={true} id="link" value={`localhost:8080${props.location.pathname}`}/>
+                        <input readOnly={true} id="link" value={`https://paimo-bloggr.herokuapp.com${props.location.pathname}`}/>
                         <button className="signup-button" onClick={(e) => {
                             e.preventDefault();
                             const copyText = document.getElementById("link");
