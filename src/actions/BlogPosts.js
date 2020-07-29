@@ -7,28 +7,37 @@ export const createBlogPost = (blogPost) => ({
 });
 
 export const startCreateBlogPost = (blogPostData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
         const {
             title = "",
             content = "",
             quote = "",
-            image = 0,
+            image = "",
             caption = "",
+            user = "",
             date = moment().format('MMMM Do YYYY')
         } = blogPostData;
-        const blogpost = { title, content, quote, image, caption, date }
-        console.log(blogpost.image);
+        const blogpost = { title, content, quote, image, caption, date, user }
+        //users/${uid}/blogPosts
+        return database.ref(`users/${uid}/blogPosts`).push(blogpost).then((ref) => {
+            if (blogpost.image) {
+                return storage.ref(`users/${uid}/blogPosts`).child(ref.key).put(blogpost.image, { contentType: blogpost.image.type })
+                    .then((snapshot) => snapshot.ref.getDownloadURL()).then(image => {
+                        return database.ref(`users/${uid}/blogPosts/${ref.key}`).child('image').set(image).then(() => {
+                            dispatch(createBlogPost({
+                                id: ref.key,
+                                ...blogpost
+                            }));
+                        });
+                    })
 
-        return database.ref('blogPosts').push(blogpost).then((ref) => {
-            return storage.ref().child(ref.key).put(blogpost.image, { contentType: blogpost.image.type })
-            .then((snapshot) => snapshot.ref.getDownloadURL()).then(image => {
-                return database.ref('blogPosts').child(ref.key).child('image').set(image).then(() => {
-                    dispatch(createBlogPost({
-                        id: ref.key,
-                        ...blogpost
-                    }));
-                });
-            })
+            } else {
+                dispatch(createBlogPost({
+                    id: ref.key,
+                    ...blogpost
+                }));
+            }
         })
     }
 };
@@ -40,9 +49,23 @@ export const editBlogPost = (id, updates = {}) => ({
 });
 
 export const startEditBlogPost = (id, updates) => {
-    return (dispatch) => {
-        return database.ref(`blogPosts/${id}`).update({ ...updates }).then(() => {
-            dispatch(editBlogPost(id, updates));
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const image = updates.image;
+
+        return database.ref(`users/${uid}/blogPosts/${id}`).update({ ...updates }).then(() => {
+            if (!!updates.image && typeof updates.image !== "string") {
+                return storage.ref(`users/${uid}/blogPosts`).child(id).put(image, { contentType: image.type })
+                    .then((snapshot) => snapshot.ref.getDownloadURL()).then(image => {
+                        return database.ref(`users/${uid}/blogPosts/${id}`).child('image').set(image).then(() => {
+                            const newUpdates = { ...updates, image }
+                            dispatch(editBlogPost(id, newUpdates));
+                        })
+                    })
+            }
+            else {
+                dispatch(editBlogPost(id, updates));
+            }
         })
     }
 }
@@ -52,13 +75,18 @@ export const deleteBlogPost = ({ id }) => ({
     id
 });
 
-export const startDeleteBlogPost = (id) => {
-    return (dispatch) => {
-        return database.ref(`blogPosts/${id}`).remove().then(() => {
-            return storage.ref().child(id).delete().then(() => {
-                dispatch(deleteBlogPost({ id }));
-            })
-            
+export const startDeleteBlogPost = (id, image) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/blogPosts/${id}`).remove().then(() => {
+            if (image) {
+                return storage.ref(`users/${uid}/blogPosts`).child(id).delete().then(() => {
+                    dispatch(deleteBlogPost({ id }));
+                })
+            }else{
+                dispatch(deleteBlogPost({ id }))
+            }
+
         });
     }
 }
@@ -68,9 +96,10 @@ export const setBlogPosts = (blogPosts) => ({
     blogPosts
 });
 
-export const strartSetBlogPosts = () => {
-    return (dispatch) => {
-        return database.ref('blogPosts').once('value').then((snapshot) => {
+export const strartSetBlogPosts = (userID = "") => {
+    return (dispatch, getState) => {
+        const uid = userID ? userID : getState().auth.uid;
+        return database.ref(`users/${uid}/blogPosts`).once('value').then((snapshot) => {
             const blogPosts = [];
             snapshot.forEach((childSnapshot) => {
                 blogPosts.push({
@@ -79,6 +108,22 @@ export const strartSetBlogPosts = () => {
                 })
             })
             dispatch(setBlogPosts(blogPosts));
+        })
+    }
+}
+
+export const viewBlogPosts = (uid) => {
+    return (dispatch) => {
+        return database.ref(`users/${uid}/blogPosts`).once('value').then((snapshot) => {
+            const blogPosts = [];
+            //console.log(snapshot.val());
+            snapshot.forEach((childSnapshot) => {
+                blogPosts.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            });
+            dispatch(setBlogPosts(blogPosts))
         })
     }
 }

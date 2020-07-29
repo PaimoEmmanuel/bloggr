@@ -1,23 +1,58 @@
-html{
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}html{
+    //Defines what 1rem is. 1rem = 10px
     font-size: 62.5%;
+
+    @include respond(big-desktop){
+        font-size: 75%; //12/16 = 75
+    }
+    @include respond(tab-land){
+        font-size: 56.25%; //9/16 = 56.25
+    }
+    @include respond(tab-port){
+        font-size: 50%; //8/16 = 50
+    }
+
 }
 
 body{
+    box-sizing: border-box;
     background-color: white;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: quicksand, sans-serif;
     font-size: $m-size;
 }
-button{
-    cursor: pointer;
+// button{
+//     cursor: pointer;
 
-    &:disabled{
-      cursor: default;  
+//     &:disabled{
+//       cursor: default;  
+//     }
+// }
+// ol{
+//     margin: 0;
+//     padding: 2rem;
+// }
+// .is-active {
+//     font-weight: bold;
+// }
+.logo{
+    font-style: italic;
+    color: $color-purple;
+    padding: 0 7rem;
+    a{
+        text-decoration: none;
+        color: $color-purple;
     }
 }
-ol{
-    margin: 0;
-    padding: 2rem;
+.footer{
+    height: 5rem;
+    width: 100%;
+    background-color: $color-purple;
 }
-.is-active {
-    font-weight: bold;
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');

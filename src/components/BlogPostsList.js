@@ -4,7 +4,7 @@ import BlogPostItem from './BlogPostItem';
 import selectBlogPosts from '../selectors/BlogPosts';
 
 const BlogPostList = (props) => (
-    <div>
+    <div className="dashboard">
     <h1>Blog List</h1>
     {props.blogPosts.map((blogPost) => <BlogPostItem key={blogPost.title} {...blogPost}/>)}
     </div>

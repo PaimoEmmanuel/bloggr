@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+
+    &-nav{
+        margin-right: 7rem;
+        display: flex;
+        align-items: center;
+
+        a{
+            margin-right: 4rem;
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: $color-purple;
+            &:hover{
+                transition: .3s ease-in-out;
+                text-decoration: underline;
+            }
+        }
+        button,
+        button:focus{
+            background-color: $color-purple;
+            border: none;
+            outline: none;
+            padding: 1rem 3rem;
+            border-radius: 3px;
+            color: #F7F7F7;
+        }
+    }
+}

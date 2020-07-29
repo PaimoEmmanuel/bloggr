@@ -1,0 +1,66 @@
+.viewblog {
+    text-align: center;
+    padding: 0 7rem;
+    margin-bottom: 5rem;
+    &-title {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    img {
+        width: 40rem;
+    }
+
+    &-content {
+        margin: 5rem;
+        display: flex;
+        justify-content: center;
+        font-size: 2rem;
+        line-height: 4rem;
+        text-align: initial;
+        font-weight: 600;
+        p {
+            //width: 80rem;
+        }
+    }
+    &-date {
+        text-align: right;
+        color: $color-purple;
+        font-weight: bold;
+        margin: 5rem;
+    }
+    &-quote-sign {
+        font-size: 20rem;
+    }
+    &-caption {
+        display: flex;
+        justify-content: center;
+        p {
+            width: 40rem;
+        }
+    }
+    &-quote {
+        margin-top: -9rem;
+        font-weight: bold;
+        font-style: italic;
+    }
+    button,
+    button:focus{
+        background-color: #f70a2a;
+        margin-left: 20rem;
+    }
+    &-form{
+        margin:  5rem 0;
+        input{
+            padding: 1rem;
+            font-weight: 600;
+            width: 70rem;
+            text-align: center;
+        }
+        button,
+        button:focus{
+            background-color: #a58b5f;
+            margin-left: 5rem;
+        }
+    }
+}

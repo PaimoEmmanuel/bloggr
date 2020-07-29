@@ -40,14 +40,13 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
         store.dispatch(signin(user.uid));
-        console.log('uid', user.uid);
         store.dispatch(strartSetBlogPosts()).then(() => {
             renderApp();
-            history.push('/dashboard'); 
+            //history.push('/dashboard'); 
         })
     } else{
         store.dispatch(signout());
         renderApp();
-        history.push('/'); 
+        //history.push('/'); 
     }
 })

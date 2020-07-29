@@ -8,6 +8,7 @@ import CreateBlogPage from '../components/CreateBlogPage';
 import EditBlogPage from '../components/EditBlogPage';
 import ViewBlogPage from '../components/ViewBlogPage';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import NotFoundPage from '../components/NotFound';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -20,10 +21,11 @@ const AppRouter = () => (
                 <PublicRoute path="/signin" component={SigninPage} exact={true} />
                 <PrivateRoute path="/create-blog" component={CreateBlogPage} />
                 <PrivateRoute path="/edit/:id" component={EditBlogPage} />
-                <PrivateRoute path="/view/:id" component={ViewBlogPage} />
+                <Route path="/view/:id" component={ViewBlogPage} />
                 <PrivateRoute path="/dashboard" exact={true} component={BlogDashboardPage} />
                 <Route component={NotFoundPage} />
             </Switch>
+            {/*<Footer />*/}
         </div>
     </Router>
 );

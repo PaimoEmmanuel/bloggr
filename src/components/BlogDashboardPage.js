@@ -4,7 +4,6 @@ import BlogPostListFilter from './BlogPostListFilter';
 
 const BlogDashboardPage = () => (
     <div>
-        Blogerrrrrrrrr
         <BlogPostListFilter />
         <BlogPostList />
     </div>

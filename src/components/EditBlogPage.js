@@ -1,20 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BlogPostForm from './BlogPostForm';
-import { startEditBlogPost, startDeleteBlogPost } from '../actions/BlogPosts'
+import { startEditBlogPost } from '../actions/BlogPosts'
 
 const EditBlogPage = (props) => {
     return  (
         <div>
-            Editttttttttt of {props.match.params.id}
+            <h1 className="create-blog">Edit and update {props.match.params.id}</h1>
             <BlogPostForm blogPost={props.blogPost} onSubmit={(blogPost) => {
                 props.dispatch(startEditBlogPost(props.blogPost.id, blogPost));
                 props.history.push('/');
             }}/>
-            <button onClick={() => {
-                props.dispatch(startDeleteBlogPost(props.blogPost.id));
-                props.history.push('/');
-            }}>Delete Post</button>
         </div>
     );
 }

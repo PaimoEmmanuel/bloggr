@@ -1,0 +1,59 @@
+.blogform{
+    display: flex;
+    flex-direction: column;
+    &-container{
+        display: flex;
+        justify-content: center;
+    }
+    &-error{
+        color: red;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    input,
+    input:focus{
+        width: 60rem;
+        padding: 1rem;
+        font-weight: bold;
+        border: 0px $color-purple;
+        outline: none;
+        font-size: 2rem;
+    }
+    label{
+        font-size: 2.8rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        color: $color-purple;
+    }
+    button{
+        background-color: #5C1A8D;
+        border: none;
+        outline: none;
+        padding: 1rem 3rem;
+        border-radius: 3px;
+        color: #F7F7F7;
+        width: 15rem;
+        align-self: flex-end;
+        margin: 2rem 0;
+    }
+}
+.blog{
+
+    &-textarea,
+    &-textarea:focus{
+        height: 40rem;
+        font-size: 2rem;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        padding: 1rem;
+    }
+}
+.create-blog{
+    text-align: center;
+    color: $color-purple;
+}
+.title-input{
+    font-size: 2.5rem !important;
+}
